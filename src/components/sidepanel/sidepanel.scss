@@ -1,0 +1,31 @@
+.sidepanel {
+    position: fixed;
+    top: 370px;
+    left: -100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 338px;
+    height: 24px;
+    transform: rotate(-90deg);
+    z-index: 3;
+    &__divider{
+        width: 70px;
+        height: 2px;
+        background-color: #000;
+    }
+    &__link {
+        transform: rotate(90deg);
+    }
+    .telegramm {
+        transform: rotate(-90deg);
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .sidepanel {
+        display: none;
+    }
+}

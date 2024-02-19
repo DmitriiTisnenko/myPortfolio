@@ -1,0 +1,120 @@
+@import '../scss/variables.scss';
+@import '../scss/mixins.scss';
+@import'../scss/title.scss';
+
+
+.promo {
+    padding-top: 40vh;
+    min-height: 100vh;
+    position: relative;
+    &__subtitle {
+        padding-left: 10px;
+        position: relative;
+        @include before_circle;
+    }
+    &__title {
+        margin-top: 10px;
+    }
+    &__btns {
+            margin-top: 25px;
+            width: 270px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        &__link {
+            background-color: $main-color;
+            border-radius: 5px;
+            color: #000000;
+            padding: 12px 25px;
+            box-shadow: grey 5px 5px 5px;
+            transition: 0.5s all;
+            &:hover {
+                text-decoration: none;
+                color: #000000;
+                transform: scale(1.1);
+            }
+        }
+    &_img {
+        position: absolute;
+        max-width: 350px;
+        border-radius: 50%;
+        top: 40vh;
+        transform: translateY(-10vh);
+        right: 0;
+        box-shadow: #3c3c3c 0px 0px 20px 20px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .promo {
+        &__title {
+            font-size: 42px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .promo {
+        &__title {
+            font-size: 40px;
+        }
+        &_img {
+            max-width: 300px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .title-center {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .promo {
+        &__title {
+            width: 335px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .promo {
+        min-height: 65vh;
+        padding-top: 10vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        &__title {
+            text-align: center;
+        }
+        .title_fz48 {
+            font-size: 30px;
+            line-height: 40px;
+        }
+        &_img {
+            transform: none;
+            position: unset;
+            margin-top: 40px;
+            max-width: 270px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .promo {
+        .title_fz48 {
+            font-size: 26px;
+            line-height: 39px;
+            width: 270px;
+        }
+        &__btns {
+            margin-top: 32px;
+        }
+        &_img {
+            max-width: 250px;
+        }
+    }
+}

@@ -1,34 +1,26 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './contacts.scss';
 import photo from '../../resources/imgs/photo_glasses.jpg';
+import emailjs from '@emailjs/browser'
 
 function Contacts () {
 
     const [dataPosted, setPosted] = useState(false);
     const [error, setError] = useState(false);
 
+    const form = useRef(null);
 
     const closeModal = () => {
         setPosted(false);
         setError(false);
     }
 
-    const onSetError = () => {
-        setError(true);
-    }
-
-    const onPostData = (e, form) => {
+    const onSendData = (e) => {
         e.preventDefault();
-
-        let formData = new FormData(form);
-
-        fetch('../../mailer/smart.php', {
-            method:'POST',
-            body: formData
-        })
+        emailjs.sendForm('service_btwewiu', 'template_yd4djcd', form.current, 'bVZbic2Bc1lU4NNl0')
         .then(setPosted(true))
-        .catch(onSetError)
-        .finally(form.reset())
+        .catch(setError(true))
+        .finally(form.current.reset())
     }
 
     const errorMessage = error ? <ErrorModal closeModal={closeModal}/> : null;
@@ -68,15 +60,14 @@ function Contacts () {
                     <div className="title title_fz14 contacts__text">
                         Или оставьте ваши данные и я сам вам напишу:
                     </div>
-                    <form action="#" onSubmit={(e) => onPostData(e, e.target)} className="contacts__form">
-
+                    <form ref={form} onSubmit={onSendData} className="contacts__form">
                         <div className="contacts__input">
                             <label htmlFor="name">Ваше имя</label>
                             <input required name="name" id="name" type="text"/>
                         </div>
 
                         <div className="contacts__input">
-                            <label htmlFor="phone">Ваш телефон</label>
+                            <label htmlFor="phone_from">Ваш телефон</label>
                             <input required name="phone" id="phone" type="tel" placeholder="0-77"/>
                         </div>
 

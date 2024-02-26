@@ -68,7 +68,7 @@ function Contacts () {
 
                         <div className="contacts__input">
                             <label htmlFor="phone_from">Ваш телефон</label>
-                            <input required name="phone" id="phone" type="tel" placeholder="0-77"/>
+                            <input required name="phone" id="phone" type="number" placeholder=""/>
                         </div>
 
                         <div className="contacts__textarea">
@@ -84,7 +84,6 @@ function Contacts () {
                                     <a href="/privacy.html" className="link" target="_blank"> политикой конфиденциальности</a>   </span>                            
                             </div>
                         </div>
-                        
                     </form>
                 </div>
             </div>
